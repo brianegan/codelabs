@@ -1,0 +1,34 @@
+name: Github Pages Test
+
+# Accepts 'flutter' or 'dart'
+type: flutter
+
+# Configuration for each step
+steps:
+  - name: Background Colors & Gradients
+    directory: steps/introduction
+    has_solution: false
+  - name: Padding
+    directory: steps/images
+    has_solution: false
+  - name: Borders
+    directory: steps/borders
+    has_solution: false
+  - name: Rounded Corners
+    directory: steps/rounded_corners
+    has_solution: false
+  - name: Padding
+    directory: steps/padding
+    has_solution: false
+  - name: Shadows
+    directory: steps/shadows
+    has_solution: false
+  - name: Container
+    directory: steps/container
+    has_solution: false
+  - name: Text Styles
+    directory: steps/text
+    has_solution: false
+  - name: Put it all together
+    directory: steps/outro
+    has_solution: false
