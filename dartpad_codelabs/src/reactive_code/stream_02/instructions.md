@@ -1,4 +1,4 @@
-# Introduction
+# Reactive Programming with Streams
 
 Now there are two aspects to reactive coding.
 
