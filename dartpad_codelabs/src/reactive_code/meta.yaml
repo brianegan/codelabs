@@ -1,0 +1,9 @@
+name: Example codelab
+type: flutter # Optional
+steps:
+  - name: Introduction
+    directory: 01_intro
+    has_solution: true
+  - name: Step 2
+    directory: step_02
+    has_solution: false
