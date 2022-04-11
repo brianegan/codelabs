@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,7 +7,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,11 +43,11 @@ class _CounterPageState extends State<CounterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('setState()'),
+        title: const Text('Introduction'),
       ),
       body: Center(
         child: Container(
-          //TODO: Add random color
+          //TODO: Add random color to observe rebuilds
           color: Colors.black54,
           child: Column(
             children: [
@@ -93,7 +90,7 @@ class CounterBody extends StatelessWidget {
     return Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(48),
-        //TODO: Add random color
+        //TODO: Add random color to observe rebuilds
         color: Colors.deepPurple,
         child: Text(
           count.toString(),
