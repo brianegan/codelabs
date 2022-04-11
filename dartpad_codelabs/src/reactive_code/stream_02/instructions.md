@@ -28,7 +28,7 @@ StreamBuilder(
     return Text(snapshot.data != null ? snapshot.data.toString() : "0",
     ),
   },
-  stream: stream,);
+stream: stream,);
 ```
 
 The `stream` property takes in the `Stream` object that needs to be associated with
@@ -53,8 +53,22 @@ So let's wrap the entire `Container` code in the `CounterText` widget with the `
 so it can reflect on the data change and update the UI when count is incremented or decremented. The
 example code for StreamBuilder is right above, so you can use that as a reference.
 
-Try to attempt this on your own, and run the code. The counter page will finally work again with the
-proper trigger to incrementing and decrementing of the count value.
+The `CounterText` widget does not have direct access to the Stream object created in its parent
+widget, so you can pass the Stream object via the `CounterText` constructor.
+
+```dart
+class CounterText extends StatelessWidget {
+  final Stream stream;
+
+  const CounterText({Key? key, required this.stream}) : super(key: key);
+
+//...
+}
+```
+
+Resolve the errors on the CounterPage and try to attempt the StreamBuilder portion on your own, and
+run the code. The counter page will finally work again with the proper trigger to incrementing and
+decrementing of the count value.
 
 Also note: Only the `CounterText()` widget is rebuilding here (notice the background color change?),
 and not the entire `CounterPage()` widget.
