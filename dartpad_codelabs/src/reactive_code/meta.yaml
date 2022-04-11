@@ -1,9 +1,24 @@
-name: Example codelab
+name: Reactive coding in Flutter
 type: flutter # Optional
 steps:
   - name: Introduction
     directory: 01_intro
     has_solution: true
-  - name: Step 2
-    directory: step_02
-    has_solution: false
+  - name: Reactive with Streams - Step 1
+    directory: stream_01
+    has_solution: true
+  - name: Reactive with Streams - Step 2
+    directory: stream_02
+    has_solution: true
+  - name: Reactive with ValueNotifier - Step 1
+    directory: value_notifier_01
+    has_solution: true
+  - name: Reactive with ValueNotifier - Step 2
+    directory: value_notifier_02
+    has_solution: true
+  - name: Reactive with Riverpod - Step 1
+    directory: riverpod_01
+    has_solution: true
+  - name: Reactive with Riverpod - Step 2
+    directory: riverpod_02
+    has_solution: true
