@@ -1,21 +1,28 @@
 # Introduction
 
-Welcome to the world of reactive programming!
+Welcome to the world of reactive programming! 👋
 
-## So what is reactive programming?
+This workshop is authored by [Pooja Bhaumik](https://poojabhaumik.com/), Google Developer Expert for
+Flutter, senior engineer at Uni Cards (Bangalore, India), co-founder of WomenDroid community. She
+enjoys mentoring folks and helping them grow in their development careers via MentorCruise and
+contributing to the tech community through blog posts, public speaking, Youtube videos, and open
+source contributions. Find me on [Twitter](https://twitter.com/pooja_bhaumik) or [Linkedin](https://linkedin.com/in/poojab26). 
 
-Imagine a variable called ``appThemeColor`` that decides the theme, background colors of the
-application.
+# So what is reactive programming?
+
+Imagine a variable called ``appThemeColor`` that holds the theme color of the application.
 
 In Reactive Programming, if this data changes in one location, all the other places in the app that
-are depending on this value react to this data update and these registered listeners automatically
+are depending on this value react to this data change and these registered listeners automatically
 update the UI or perform actions depending on the new data.
 
-In this workshop, we will extend our default counter app, and add reactivity with the help of
+In this workshop, you will extend our default counter app and add reactivity with the help of
 
-* Streams
-* ValueNotifiers
-* Riverpod (an extension of Provider)
+➡️ Streams
+
+➡️ ValueNotifiers
+
+➡️ Riverpod (an extension of Provider)
 
 The current code is a simple Counter app, however the difference is that the Text part of the
 Counter is extracted out as a separate widget called `CounterText()`, and the parent widget is the
@@ -24,12 +31,12 @@ take place.
 
 So data update happens in one widget, and the UI is supposed to rebuild from another widget.
 
-In this particular example, we are calling `setState()` on each count update and passing the current
+In this particular example, you are calling `setState()` on each count update and passing the current
 count value down via the `CounterText()` constructor.
 
 However, you must be aware that `setState()` rebuilds the entire widget tree from where the call
 happens. So setState() called from `CounterPage()` will not only rebuild itself but also
-the `CounterText()` widget.
+the `CounterText()` widget. 
 
 To visually demonstrate this, let's check out the [TODO] comments and add a random generating
 background color to both the widgets.

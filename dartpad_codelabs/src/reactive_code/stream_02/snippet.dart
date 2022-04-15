@@ -41,11 +41,11 @@ class _CounterPageState extends State<CounterPage> {
   }
 
   void increment() {
-    //TODO: Add incremented value to the Stream
+    //TODO[1]: Increment _count and add event to the Stream
   }
 
   void decrement() {
-    //TODO: Add incremented value to the Stream
+    //TODO[2]: Decrement _count and add event to the Stream
   }
 
   @override
@@ -61,6 +61,7 @@ class _CounterPageState extends State<CounterPage> {
           child: Column(
             children: [
               CounterText(
+                //TODO[4]: Pass _stream to CounterText instead of _count so StreamBuilder can listen to it.
                 count: _count,
               ),
             ],
@@ -102,6 +103,7 @@ class CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO[3]: Wrap the Container with a StreamBuilder
     return Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(48),

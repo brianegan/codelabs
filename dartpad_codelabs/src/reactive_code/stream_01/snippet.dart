@@ -32,7 +32,7 @@ class CounterPage extends StatefulWidget {
 class _CounterPageState extends State<CounterPage> {
   int _count = 0;
 
-  //TODO: Initialize StreamController and Stream
+  //TODO[1]: Initialize StreamController and Stream
 
   void increment() {}
 
@@ -78,7 +78,7 @@ class _CounterPageState extends State<CounterPage> {
     );
   }
 
-  //TODO: Dispose the StreamController on onDispose()
+  //TODO[2]: Dispose the StreamController on onDispose()
 }
 
 class CounterText extends StatelessWidget {

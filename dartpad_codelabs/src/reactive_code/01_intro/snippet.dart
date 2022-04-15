@@ -47,7 +47,7 @@ class _CounterPageState extends State<CounterPage> {
       ),
       body: Center(
         child: Container(
-          //TODO: Add random color to observe rebuilds
+          //TODO[1]: Write logic to assign random color to observe rebuilds
           color: Colors.black54,
           child: Column(
             children: [
@@ -90,7 +90,7 @@ class CounterBody extends StatelessWidget {
     return Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(48),
-        //TODO: Add random color to observe rebuilds
+        //TODO[2]: Write logic to assign random color to observe rebuilds
         color: Colors.deepPurple,
         child: Text(
           count.toString(),

@@ -1,19 +1,19 @@
 # Reactive Programming with Streams
 
-Now there are two aspects to reactive coding.
+There are two aspects of Reactive Programming.
 
 1️⃣ where the data/state change occurs or gets triggered from.
 
-2️⃣ listeners who react to the data change.
+2️⃣ listeners (one or more) who react to the data change.
 
 It could either be a pure Dart code that performs an action reacting to the data change or a UI
 component/widget that rebuilds its UI configuration reacting to the new state.
 
-In our case, we have the `CounterText` widget that needs to react to the data change in the stream
+In our case, we have the `CounterText` widget that needs to react to the new event added to the stream
 and display the current count value.
 
-To trigger a data update, we can insert the new version of the data to the Stream's sink in this
-manner.
+To add an event to the stream that will eventually trigger a data update, you can insert the new version of the data to the `Stream`'s sink by the following
+manner:
 
 ```dart
 _streamController.sink.add(updatedData);
@@ -31,30 +31,33 @@ StreamBuilder(
 stream: stream,);
 ```
 
-The `stream` property takes in the `Stream` object that needs to be associated with
+The `stream` property takes in the `Stream` object that holds your data and should be associated with
 this `StreamBuilder` widget. And the ``builder`` returns the Widget that you want to render when
-data changes in the given `Stream` object. To get the current value of the Stream, in our case the
+a new event (or in your case, new count value) is added onto the given `Stream` object. To get the latest snapshot of the Stream, in our case the updated
 count value, we use `snapshot.data`.
 
-Now let's resolve our TODOs and add the logic for incrementing and decrementing the count value
-via `StreamController`.
+Now let's resolve our *TODOs*.
+
+## TODO: Increment/Decrement `_count` and add event to the Stream
+Here, is where you can add the logic for incrementing and decrementing the count value using `StreamController`.
 
 ```dart
 _streamController.sink.add(_count++);
 ```
-
-Here, we are incrementing the count value and adding it to our Stream's sink. Now the listeners of
-this Stream will automatically reflect when this data change occurs. Now try to apply the same logic
+Here, the count value is incremented and added to the `Stream`'s sink. (Remember our kitchen sink example?) Now the listeners of
+this Stream will automatically reflect when the latest data hits the Stream. Next, try to apply the same logic
 for the decrement method where `_count` will be reduced by 1.
 
-We still do not have any listeners yet.
+## TODO: Wrap the Container with a StreamBuilder
+We still do not have any listeners yet. In this example, since the data change needs to be listened to by a UI component, the listener should be a StreamBuilder. 
 
-So let's wrap the entire `Container` code in the `CounterText` widget with the `StreamBuilder<int>`
+So let's wrap the entire `Container` code in the `CounterText` widget with a `StreamBuilder<int>`
 so it can reflect on the data change and update the UI when count is incremented or decremented. The
 example code for StreamBuilder is right above, so you can use that as a reference.
 
+## TODO: Pass `_stream` to CounterText instead of `_count`
 The `CounterText` widget does not have direct access to the Stream object created in its parent
-widget, so you can pass the Stream object via the `CounterText` constructor.
+widget, so you can pass the Stream object via the `CounterText` constructor and remove the `_count` property from its constructor.
 
 ```dart
 class CounterText extends StatelessWidget {
@@ -66,11 +69,15 @@ class CounterText extends StatelessWidget {
 }
 ```
 
-Resolve the errors on the CounterPage and try to attempt the StreamBuilder portion on your own, and
-run the code. The counter page will finally work again with the proper trigger to incrementing and
-decrementing of the count value.
+Make sure to update the `CounterText()` object in `CounterPage` as well. Try to attempt the StreamBuilder portion on your own, and
+run the code. The counter page will finally work again and on tapping the floating actions buttons, the count value will change accordingly.
 
 Also note: Only the `CounterText()` widget is rebuilding here (notice the background color change?),
 and not the entire `CounterPage()` widget.
 
-And that's it, we built a simple counter app with Streams. To learn more about Streams, go to : 
+And that's it, you successfully replaced `setState()` with Streams from the default counter app. 
+
+To learn more, 
+* [Read the Dart docs on Streams](https://dart.dev/tutorials/language/streams)
+* [More about StreamBuilder](https://api.flutter.dev/flutter/widgets/StreamBuilder-class.html)
+
