@@ -47,6 +47,7 @@ class CounterPage extends StatelessWidget {
           child: Column(
             children: [
               CounterText(
+                // TODO[2]: Pass the notifier down to CounterText instead of count
                 count: 0,
               ),
             ],
@@ -82,6 +83,7 @@ class CounterText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO [1]: Wrap the Container by ValueListenableBuilder that can listen to a ValueNotifier
     return Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(48),

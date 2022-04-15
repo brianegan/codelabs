@@ -29,14 +29,14 @@ class CounterPage extends StatefulWidget {
 }
 
 class _CounterPageState extends State<CounterPage> {
-  //TODO: Create a ValueNotifier<int> object with initial value as 0
+  //TODO[1]: Create a ValueNotifier<int> object with initial value as 0
 
   void increment() {
-    //TODO: Increment the count here
+    //TODO[2]: Increment the notifier here
   }
 
   void decrement() {
-    //TODO: Decrement the count here
+    //TODO[3]: Decrement the notifier here
   }
 
   @override
