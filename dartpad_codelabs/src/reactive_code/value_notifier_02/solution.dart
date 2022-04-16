@@ -78,7 +78,7 @@ class CounterPage extends StatelessWidget {
 class CounterText extends StatelessWidget {
   final ValueNotifier notifier;
 
-  CounterText({Key? key, required this.notifier}) : super(key: key);
+  const CounterText({Key? key, required this.notifier}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final counterProvider = StateNotifierProvider.autoDispose<CounterNotifier, int>(
-      (_) => CounterNotifier(),
+      (ref) => CounterNotifier(),
 );
 
 void main() {

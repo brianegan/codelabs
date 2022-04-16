@@ -1,8 +1,9 @@
-
 //ignore_for_file: unused_field, prefer_const_literals_to_create_immutables, prefer_const_constructors, prefer_const_constructors_in_immutables
 
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+
+//TODO[4]: Create a global provider to access CounterNotifier and its state
 
 void main() {
   runApp(const MyApp());
@@ -22,10 +23,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//TODO[1]: Extend the class with a StateNotifier<int> and provide an initial count value of 0.
+class CounterNotifier {
 
-//TODO: Extend the class with a StateNotifier<int> and provide an initial count value of 0.
-class CounterNotifier{}
+  void increment() {
+    //TODO[2]: Increment the state here
+  }
 
+  void decrement() {
+    //TODO[2]: Decrement the state here
+  }
+}
 
 class CounterPage extends StatefulWidget {
   CounterPage({Key? key}) : super(key: key);
@@ -35,7 +43,6 @@ class CounterPage extends StatefulWidget {
 }
 
 class _CounterPageState extends State<CounterPage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +52,7 @@ class _CounterPageState extends State<CounterPage> {
       body: Center(
         child: Container(
           color:
-          Colors.primaries[math.Random().nextInt(Colors.primaries.length)],
+              Colors.primaries[math.Random().nextInt(Colors.primaries.length)],
           child: Column(
             children: [
               CounterText(
@@ -61,7 +68,7 @@ class _CounterPageState extends State<CounterPage> {
           FloatingActionButton(
             backgroundColor: Colors.grey,
             child: const Icon(Icons.exposure_minus_1),
-            onPressed: (){},
+            onPressed: () {},
           ),
           const SizedBox(
             height: 10,
@@ -69,7 +76,7 @@ class _CounterPageState extends State<CounterPage> {
           FloatingActionButton(
             backgroundColor: Colors.red,
             child: const Icon(Icons.exposure_plus_1),
-            onPressed: (){},
+            onPressed: () {},
           ),
         ],
       ),
