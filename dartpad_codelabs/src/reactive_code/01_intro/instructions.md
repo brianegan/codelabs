@@ -6,7 +6,7 @@ This workshop is authored by [Pooja Bhaumik](https://poojabhaumik.com/), Google 
 Flutter, senior engineer at Uni Cards (Bangalore, India), co-founder of WomenDroid community. She
 enjoys mentoring folks and helping them grow in their development careers via MentorCruise and
 contributing to the tech community through blog posts, public speaking, Youtube videos, and open
-source contributions. Find me on [Twitter](https://twitter.com/pooja_bhaumik) or [Linkedin](https://linkedin.com/in/poojab26). 
+source contributions. Find her on [Twitter](https://twitter.com/pooja_bhaumik) or [Linkedin](https://linkedin.com/in/poojab26). 
 
 # So what is reactive programming?
 
