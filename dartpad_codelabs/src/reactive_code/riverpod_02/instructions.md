@@ -27,23 +27,27 @@ similar to the `StreamBuilder` & `ValueListenableBuilder` concepts.
 
 ```dart
 Consumer(
+  child: SomeWidgetThatNeedsNoRebuilds(),
   builder: (BuildContext context, WidgetRef ref, Widget? child) {
     final value = ref.watch(valueProvider);
-    return Text(value); // Hello world
+    return Column(
+      children: [
+        Text(value.toString()), 
+        child, // this child wont rebuild
+       ]
+      )
     },
   );
 ```
 
-Like the ValueListenableBuilder, the builder of a `Consumer` widget takes a BuildContext, a child
-widget that takes in the part of the UI that does not depend on the state change (improves
-performance) and also exposes the `WidgetRef` object.
+Like the ValueListenableBuilder, the builder of a `Consumer` widget exposes a BuildContext, `WidgetRef` object, and also the optional child
+widget that is independent of any widget rebuilds.
 
 And then we have the ConsumerWidget or ConsumerStatefulWidget which is basically a StatelessWidget
 or StatefulWidget respectively and can implicitly listen to or read providers.
 
 For e.g, in the following snippet, you have a Stateless class that subclasses `ConsumerWidget` and
-exposes the `WidgetRef`
-object through the `build(context, ref)` method and inside this build() method, you can use
+exposes the `WidgetRef` object through the `build(context, WidgetRef ref)` method and inside this build() method block, you can use
 the `ref` object to listen to one or more providers.
 
 ```dart
