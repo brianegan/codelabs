@@ -3,6 +3,10 @@
 `ValueNotifiers`, also available in the core SDK, is basically like a ChangeNotifier but
 holds only a single value. This is another alternative you can use for writing reactive code. 
 
+<!-- Maybe talk about why you'd use ValueNotifier instead of Stream? Streams are async, ValueNotifier is sync, you can read teh current value, etc? The reader may not know about ChangeNotifier at this point. -->
+## Streams vs ValueNotifiers
+With Streams, you must `add` values to a `StreamController`'s `Sink`. In contrast, ValueNotifiers notify their listeners of changes whenever the value changes... more could go here as well :)
+
 ## ChangeNotifiers vs ValueNotifiers
 In a ChangeNotifier, you have to explicitly trigger `notifyListeners()`
 after making a data change so the listeners can update itself. But ValueNotifiers will automatically

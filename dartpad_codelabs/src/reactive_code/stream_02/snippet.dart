@@ -104,6 +104,10 @@ class CounterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //TODO[3]: Wrap the Container with a StreamBuilder
+    //
+    // Tip: Click on the word "Container" below. Then, press alt + enter
+    // (windows/linux) or option + return (mac). Then, select "Wrap with
+    // StreamBuilder..." from the dropdown menu to save yourself some typing!
     return Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(48),

@@ -4,13 +4,11 @@ There are two aspects of Reactive Programming.
 
 1️⃣ where the data/state change occurs or gets triggered from.
 
-2️⃣ listeners (one or more) who react to the data change.
+<!-- I kinda felt like all of this should be grouped under the "Listeners" bullet point since it all relates to listening to changes, but please feel free to ignore! -->
+2️⃣ listeners (one or more) who react to the data change. Listeners may be pure Dart code that performs an action in response to a data change or a widget that rebuilds its UI. In our case, we have the `CounterText` widget that should listen to new events added to the `Sink` and update the UI to display the current count.
 
-It could either be a pure Dart code that performs an action reacting to the data change or a UI
-component/widget that rebuilds its UI configuration reacting to the new state.
 
-In our case, we have the `CounterText` widget that needs to react to the new event added to the stream
-and display the current count value.
+## Trigger a Data/State Change
 
 To add an event to the stream that will eventually trigger a data update, you can insert the new version of the data to the `Stream`'s sink by the following
 manner:
@@ -19,8 +17,12 @@ manner:
 _streamController.sink.add(updatedData);
 ```
 
-And the UI component that needs to rebuild as a reaction to this updated data, needs to wrap a
-`StreamBuilder()` widget around it.
+<!-- I added headings to emphasize what each section was explaining -->
+## Listen to Data/State Changes
+
+The UI component that needs to rebuild as a reaction to this updated data, needs
+to wrap a `StreamBuilder()` widget around it. The `StreamBuilder` listens to a
+`stream` of data and rebuilds the UI whenever new data is added.
 
 ```dart
 StreamBuilder(

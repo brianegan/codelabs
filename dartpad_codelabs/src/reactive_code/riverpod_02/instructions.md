@@ -3,26 +3,27 @@
 ## Reading Providers
 
 To read/access any provider, you need an instance of the `Ref` object. You can also use `Ref` to
-interact with other providers. And then there is the the `WidgetRef` object which allows widgets to
-interact with providers and that is what you will be using in the current example.
+interact with other providers. In addition, there is a `WidgetRef` object which allows widgets to
+interact with providers. That is what you will be using in the current example!
 
-Riverpod allows us to read or listen to the states associated with the provider. You can
+Riverpod allows us to either *listen to* or *read* the states associated with the provider. You can
 do ``ref.watch(provider)`` to listen to a provider and reactively rebuild UI on state updates. In
-other cases when you do not want to rebuild UI but just access the state of the provider, or rather
-the current value associated with the state, in those scenarios, simply do ``ref.read(provider)``
+situations where you do not want to rebuild UI, only just access the state of the provider, use ``ref.read(provider)``
 
-So in this case, the `CounterText` widget should definitely watch for the provider changes and
+In this case, the `CounterText` widget should definitely listen to the provider changes and
 rebuild itself on a state change. So you can use the `ref.watch()` method there.
 
-However, the floating action buttons do not need to listen or watch for the state change, they only
+However, the floating action buttons do not need to listen to state changes. Instead, they only
 have to call the `increment()` or `decrement()` method without having to rebuild itself. So, in this
 case, you can use ``ref.read(provider)``
 
 ## But how to get this [WidgetRef] object?
 
-A `WidgetRef` object needs to be associated with a widget and there are two ways we can do that.
+A `WidgetRef` object needs to be associated with a widget. There are two ways we can do that.
 
-`Consumer()` widget that can be wrapped around any widget that needs to rebuild. This is very
+### Consumer
+
+First, the `Consumer()` widget provided by riverpod can be wrapped around any widget that needs to rebuild in response to state changes. This is very
 similar to the `StreamBuilder` & `ValueListenableBuilder` concepts.
 
 ```dart
@@ -40,14 +41,15 @@ Consumer(
   );
 ```
 
-Like the ValueListenableBuilder, the builder of a `Consumer` widget exposes a BuildContext, `WidgetRef` object, and also the optional child
+Like the `ValueListenableBuilder`, the `builder` function exposes a `BuildContext`, `WidgetRef` object, and also the optional child
 widget that is independent of any widget rebuilds.
 
-And then we have the ConsumerWidget or ConsumerStatefulWidget which is basically a StatelessWidget
-or StatefulWidget respectively and can implicitly listen to or read providers.
+### ConsumerWidget or ConsumerStatefulWidget
 
-For e.g, in the following snippet, you have a Stateless class that subclasses `ConsumerWidget` and
-exposes the `WidgetRef` object through the `build(context, WidgetRef ref)` method and inside this build() method block, you can use
+Second, we have the `ConsumerWidget` or `ConsumerStatefulWidget`, which is basically a `StatelessWidget`
+or `StatefulWidget` that can listen to or read providers.
+
+For example, in the following snippet, you have a stateless class that subclasses `ConsumerWidget`. The `WidgetRef` object is available to the `build` method via the signature: `build(context, WidgetRef ref)`. Inside this build() method, you can use
 the `ref` object to listen to one or more providers.
 
 ```dart
@@ -65,8 +67,8 @@ class AmountWidget extends ConsumerWidget {
 
 ## TODO: Convert CounterText to ConsumerWidget and watch the counterProvider inside build()
 
-The `CounterText` widget in the counter example needs to constantly listen to the state changes of
-the counterProvider, so it probably makes sense to change the StatelessWidget to a ConsumerWidget
+The `CounterText` widget in the counter example needs to listen to the state changes of
+the `counterProvider`, so it probably makes sense to change the `StatelessWidget` to a `ConsumerWidget`
 here and update the build method signature.
 
 ```dart
@@ -79,7 +81,7 @@ class CounterText extends ConsumerWidget {
 }
 ```
 
-Now let's remove the constructor count variable and replace it with a local variable inside build
+Now let's remove the constructor count variable and replace it with a local variable inside the `build`
 method. Inside `build()`, watch for the `counterProvider` and fetch the current value, store it in a local `count` variable and
 provide it to the Text widget.
 
@@ -94,10 +96,9 @@ Widget build(BuildContext context, WidgetRef ref) {
 
 ## TODO: Trigger the CounterNotifier methods from onPressed
 
-But the increment and decrement methods that were created in the CounterNotifier class are still not called from the floating action button'
+However, the increment and decrement methods that were created in the CounterNotifier class are still not called from the floating action button'
 s `onPressed`
-blocks. In order to do that, the global constant `counterProvider` needs to be read inside your onPressed block and then you can simply call the methods inside the notifier class to
-perform the corresponding actions.
+callbacks. In order to do that, the global constant `counterProvider` needs to be read inside your onPressed block. Then, you can simply call the methods inside the notifier class to perform the corresponding actions.
 
 So for increment, it would be like this:
 
@@ -131,7 +132,7 @@ And now the `ref` object is exposed via the Consumer `builder()` method and you 
 blocks and trigger the data update.
 
 ## TODO: Wrap the root widget with ProviderScope
-However, for the entire widget tree to be able to read providers, the entire application needs to be wrapped
+For the entire widget tree to be able to read providers, the entire application needs to be wrapped
 with ``ProviderScope()``. This is where the state of the providers will be stored. So in
 your `main()` method, you can wrap the `MyApp()` widget with `ProviderScope()`
 

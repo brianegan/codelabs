@@ -3,7 +3,7 @@
 This is Part one of our reactive programming series. In this part, you learn to write reactive code
 with Streams & StreamBuilder which are part of the core Flutter SDK.
 
-To understand Stream, imagine a kitchen sink in your house that is connected with a pipe. Anything
+To understand Streams, imagine a kitchen sink in your house that is connected with a pipe. Anything
 that you throw in the sink, flows via the pipe and comes out from the other end. 
 
 Here, you can say that the pipe is carrying a `Stream` of things. The `sink` is allowing you to add
@@ -52,7 +52,7 @@ A sequence of events can now added onto this Stream.
 
 ## TODO[2]: Dispose the StreamController on onDispose()
 
-As and when the widget is destroyed, the StreamControllers needs to be disposed as well. This is also the reason why you need to use a StatefulWidget here.
+When the widget is destroyed, the StreamControllers needs to be disposed as well. This is also the reason why you need to use a StatefulWidget here.
 
 To resolve this, override the `dispose()` method of your State class, and call the `.close()` method on your `_streamController`.
 ```dart

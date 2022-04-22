@@ -1,8 +1,10 @@
 # Reactive code with Riverpod
 
 This is the last part of our workshop, where you learn to write reactive code with Riverpod.
-Riverpod is not part of the core Flutter SDK and is a community built solution but is widely popular
-among the developers.
+Riverpod is not part of the core Flutter SDK. Rather, it is a community built solution that is widely popular
+among Flutter developers.
+
+<!-- Maybe talk about how Riverpod extends the concepts of ValueNotifier to make it easy to read ValueNotifiers throughout your app without needing to pass variable? Then, in the next step you could say "See, riverpod allows you to remove the constructor variable here! :)" -->
 
 Riverpod is developed by [Remi Rousselet](https://github.com/rrousselGit), and is considered as a
 2.0 upgrade of the officially recommended [Provider](https://pub.dev/packages/provider) package. In
@@ -20,8 +22,10 @@ you will work only with `StateNotifierProvider`.
 
 With Riverpod, you can subclass `StateNotifier<T>` for immutable data or state that can change over
 time after reacting to different actions or user interactions. This class will teach us how to hold
-the business logic for that particular state. For e.g the increment logic can be abstracted out in
+the business logic for that particular state. For example, the increment logic can be abstracted out in
 this class itself instead of exposing it in the widget code.
+
+<!-- Maybe talk about how StateNotifier works almost exactly like ValueNotifier, but with a state variable? Changing the state variable will notify listeners a change has occurred... etc, feel like that context is missing here a bit.-->
 
 ## TODO: Extend the class with a StateNotifier<int> and provide an initial count value of 0.
 

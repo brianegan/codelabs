@@ -1,14 +1,13 @@
 # Reactive code with ValueNotifier - Step 2
 
-Like you have a StreamBuilder that can listen to a Stream, you will also need a widget that can
-listen to ValueNotifiers easily. And that is resolved with `ValueListenableBuilder()`.
+Just as you have a `StreamBuilder` that can listen to a `Stream`, you will also need a widget that can
+listen to a `ValueNotifier` easily. And that is resolved with `ValueListenableBuilder()`.
 
 ## TODO: Wrap the Container by ValueListenableBuilder that can listen to a ValueNotifier
 
-A ValueListenableBuilder has two required parameters, `valueListenable` and `builder`. To associate
-a ValueNotifier with a ValueListenableBuilder, you can assign the notifier to the `valueListenable`
-property, just like the `stream` property of a StreamBuilder. The `builder`, similar to
-StreamBuilder, exposes a BuildContext, the current snapshot or value of the notifier, and the child
+A `ValueListenableBuilder` has two required parameters, `valueListenable` and `builder`. To associate
+a `ValueNotifier` with a `ValueListenableBuilder`, you can assign the notifier to the `valueListenable`
+property, just like the `stream` property of a `StreamBuilder`. The `builder` function exposes a `BuildContext`, the current snapshot or value of the notifier, and an optional child
 widget that is independent of the value notifier's data so won't need any rebuilds.
 
 The builder must return a Widget that needs to rebuild on every value update of the notifier.
